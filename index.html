@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LogiStore Executive - Sistem Inventori Gudang Realtime</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .gradient-hero {
+      background: radial-gradient(120% 120% at 50% 10%, #ffffff 40%, #fff1f1 80%, #ffd6d6 100%);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 overflow-x-hidden">
+
+  <!-- NAVIGATION BAR -->
+  <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100 py-4">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 bg-[#800000] rounded-xl flex items-center justify-center text-white shadow-md">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+          </svg>
+        </div>
+        <span class="font-extrabold text-lg text-slate-900 tracking-tight">LogiStore <span class="text-[#800000]">Executive</span></span>
+      </div>
+      
+      <div class="hidden md:flex space-x-8 text-sm font-bold text-slate-650">
+        <a href="#fitur" class="hover:text-[#800000] transition-colors">Fitur Utama</a>
+        <a href="#demo" class="hover:text-[#800000] transition-colors">Demo Aplikasi</a>
+        <a href="#screenshots" class="hover:text-[#800000] transition-colors">Tampilan Antarmuka</a>
+        <a href="#harga" class="hover:text-[#800000] transition-colors">Paket Harga</a>
+      </div>
+
+      <div>
+        <a href="#harga" class="px-5 py-2.5 bg-[#800000] hover:bg-red-800 text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md shadow-red-950/20">
+          Miliki Sekarang
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="gradient-hero py-16 md:py-24 border-b border-slate-200/50">
+    <div class="max-w-7xl mx-auto px-6 text-center space-y-8">
+      <span class="px-4 py-1.5 bg-red-100 text-[#800000] text-xs font-bold uppercase tracking-widest rounded-full">
+        ⚡ ZERO MONTHLY HOSTING COST
+      </span>
+      <h1 class="text-4xl md:text-6xl font-black text-slate-900 tracking-tight leading-tight max-w-4xl mx-auto">
+        Ubah Google Sheets Menjadi Sistem <span class="text-[#800000]">Inventori Gudang</span> Realtime Kelas Eksekutif!
+      </h1>
+      <p class="text-slate-500 text-sm md:text-base max-w-2xl mx-auto leading-relaxed font-medium">
+        Kombinasi luar biasa dari performa kilat **Firebase Cloud** dan kepraktisan **Google Sheets**. Kelola ribuan SKU, pantau nilai aset instan, mutasi stok, hingga scan barcode kamera langsung dari satu Web App terintegrasi.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
+        <a href="#demo" class="w-full sm:w-auto px-8 py-4 bg-[#800000] hover:bg-red-800 text-white font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-red-950/20 text-center">
+          Tonton Video Demo (2 Menit)
+        </a>
+        <a href="#harga" class="w-full sm:w-auto px-8 py-4 bg-white hover:bg-slate-50 text-slate-800 font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all border border-slate-200 text-center">
+          Lihat Paket Harga
+        </a>
+      </div>
+
+      <!-- Mockup Window Browser -->
+      <div class="max-w-5xl mx-auto pt-8">
+        <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden">
+          <div class="bg-slate-100 px-4 py-3 flex items-center space-x-2 border-b border-slate-200">
+            <div class="w-3 h-3 rounded-full bg-red-400"></div>
+            <div class="w-3 h-3 rounded-full bg-amber-400"></div>
+            <div class="w-3 h-3 rounded-full bg-emerald-400"></div>
+            <div class="bg-white text-[10px] text-slate-400 font-bold px-12 py-1 rounded-md border border-slate-150 w-full max-w-xs text-center truncate">
+              logistore-gudang.web.app
+            </div>
+          </div>
+          <!-- Real App UI Mockup -->
+          <div class="bg-slate-900 p-6 flex flex-col md:flex-row text-left space-y-4 md:space-y-0 md:space-x-4">
+            <div class="w-full md:w-1/4 bg-[#800000] rounded-xl p-4 text-white space-y-4">
+              <div class="font-extrabold text-xs">LOGISTORE EXECUTIVE</div>
+              <div class="space-y-1">
+                <div class="bg-black/20 p-2 rounded text-[11px] font-bold">📊 Dasbor Ringkasan</div>
+                <div class="p-2 rounded text-[11px] font-bold text-red-200">📦 Stok & Inventori</div>
+                <div class="p-2 rounded text-[11px] font-bold text-red-200">📜 Riwayat Transaksi</div>
+              </div>
+            </div>
+            <div class="flex-1 bg-slate-50 rounded-xl p-4 space-y-4 text-slate-800">
+              <div class="flex justify-between items-center">
+                <span class="font-bold text-sm">Dashboard Ringkasan</span>
+                <span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-600 rounded text-[10px] font-bold">Firebase Live</span>
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+                <div class="bg-gradient-to-br from-red-700 to-red-900 text-white p-3 rounded-lg">
+                  <div class="text-[9px] font-bold text-red-200">TOTAL SKU</div>
+                  <div class="text-xl font-black">158 SKU</div>
+                </div>
+                <div class="bg-gradient-to-br from-indigo-700 to-blue-900 text-white p-3 rounded-lg">
+                  <div class="text-[9px] font-bold text-indigo-200">ESTIMASI ASET</div>
+                  <div class="text-xl font-black">Rp 268 Juta</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEKSI VALUE PROPOSITION -->
+  <section id="fitur" class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+        <h2 class="text-3xl font-extrabold tracking-tight text-slate-900 md:text-4xl">
+          Mengapa Bisnis Harus Memiliki LogiStore?
+        </h2>
+        <p class="text-slate-500 text-sm font-semibold">
+          Hilangkan kebiasaan pencatatan manual yang lambat dan rawan kesalahan. Modernisasi operasional gudang Anda hari ini.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Fitur 1 -->
+        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 space-y-4">
+          <div class="w-12 h-12 bg-red-100 text-[#800000] rounded-xl flex items-center justify-center font-bold text-xl">
+            📡
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Sinkronisasi Realtime</h3>
+          <p class="text-xs text-slate-500 leading-relaxed font-semibold">
+            Didukung oleh Firebase Firestore. Setiap kali stok diubah di Web App, data di Google Sheets & layar Admin lainnya akan terupdate otomatis dalam hitungan milidetik tanpa perlu memuat ulang halaman.
+          </p>
+        </div>
+
+        <!-- Fitur 2 -->
+        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 space-y-4">
+          <div class="w-12 h-12 bg-red-100 text-[#800000] rounded-xl flex items-center justify-center font-bold text-xl">
+            📷
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Scan Barcode Kamera Live</h3>
+          <p class="text-xs text-slate-500 leading-relaxed font-semibold">
+            Cukup gunakan kamera handphone atau laptop Anda. Arahkan pada barcode/QR produk fisik, sistem langsung mendeteksi data produk dan membuka opsi mutasi atau pendaftaran otomatis.
+          </p>
+        </div>
+
+        <!-- Fitur 3 -->
+        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 space-y-4">
+          <div class="w-12 h-12 bg-red-100 text-[#800000] rounded-xl flex items-center justify-center font-bold text-xl">
+            GD
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Nilai Aset Eksekutif</h3>
+          <p class="text-xs text-slate-500 leading-relaxed font-semibold">
+            Tampilkan metrik finansial secara instan. Menghitung secara otomatis seluruh nilai perputaran modal dari kuantitas stok dikalikan harga beli unit di dalam gudang secara realtime.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO VIDEO PLAYBACK CONCEPT (SUDAH TERINTEGRASI GOOGLE DRIVE ANDA) -->
+  <section id="demo" class="py-16 md:py-24 bg-slate-50 border-t border-b border-slate-200/50">
+    <div class="max-w-5xl mx-auto px-6 text-center space-y-8">
+      <div class="space-y-3">
+        <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Tonton Video Demo Aplikasi</h2>
+        <p class="text-xs text-slate-500 font-semibold max-w-xl mx-auto">Lihat langsung bagaimana aplikasi ini menyinkronkan data secara instan dalam 2 menit pengoperasian.</p>
+      </div>
+      
+      <!-- Video Player Card Container -->
+      <div class="aspect-video bg-slate-950 rounded-2xl overflow-hidden shadow-2xl border-4 border-white relative flex items-center justify-center">
+        <!-- Google Drive Embed Video Link Asli Anda -->
+        <iframe 
+          class="absolute top-0 left-0 w-full h-full rounded-2xl" 
+          src="https://drive.google.com/file/d/1OJIHGlzbjT-2lxH6C-tjfqcLunOpSfUi/preview" 
+          frameborder="0" 
+          allow="autoplay; encrypted-media" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING PACKAGES SECTION -->
+  <section id="harga" class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+        <h2 class="text-3xl font-extrabold tracking-tight text-slate-900 md:text-4xl">
+          Paket Harga Investasi Sekali Bayar
+        </h2>
+        <p class="text-slate-500 text-sm font-semibold">
+          Tidak ada biaya bulanan, tidak ada biaya server tersembunyi. Miliki lisensi penuh selamanya!
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Paket 1: Source Code Only -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 flex flex-col justify-between space-y-8">
+          <div class="space-y-4">
+            <span class="px-3 py-1 bg-slate-200/60 text-slate-600 text-[10px] font-bold uppercase tracking-wider rounded-md">MANDIRI</span>
+            <h3 class="text-xl font-bold text-slate-950">Source Code Saja</h3>
+            <p class="text-xs text-slate-500 font-semibold leading-normal">Bagi Anda yang sudah terbiasa dengan coding Google Apps Script dan Firebase Console.</p>
+            <div class="pt-4">
+              <span class="text-slate-400 line-through text-xs font-bold block">Rp 750.000</span>
+              <span class="text-3xl font-extrabold text-slate-900">Rp 399.000</span>
+            </div>
+            <ul class="space-y-2 pt-4 border-t border-slate-200 text-xs text-slate-600 font-semibold">
+              <li class="flex items-center gap-2">🟢 <span>File HTML & JS Lengkap</span></li>
+              <li class="flex items-center gap-2">🟢 <span>Script Google Sheets Sync</span></li>
+              <li class="flex items-center gap-2">🟢 <span>Dokumentasi Panduan Setup</span></li>
+              <li class="flex items-center gap-2">❌ <span class="text-slate-400">Instalasi / Setup oleh Tim Kami</span></li>
+            </ul>
+          </div>
+          <button onclick="orderViaWA('Mandiri (Rp 399rb)')" class="w-full py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all">
+            Beli Kode Sumber
+          </button>
+        </div>
+
+        <!-- Paket 2: Full Setup (Best Value) -->
+        <div class="bg-white border-2 border-[#800000] rounded-3xl p-8 relative flex flex-col justify-between space-y-8 shadow-xl shadow-red-950/5 transform md:-translate-y-4">
+          <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#800000] text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow-lg">
+            Paling Populer ⭐
+          </span>
+          <div class="space-y-4">
+            <span class="px-3 py-1 bg-red-100 text-[#800000] text-[10px] font-bold uppercase tracking-wider rounded-md">FULL SERVICE</span>
+            <h3 class="text-xl font-bold text-slate-950">Siap Pakai (Setup Dibantu)</h3>
+            <p class="text-xs text-slate-500 font-semibold leading-normal">Kami buatkan database Firebase, sambungkan ke Google Sheets Anda, dan luncurkan Web App Anda hingga online.</p>
+            <div class="pt-4">
+              <span class="text-slate-400 line-through text-xs font-bold block">Rp 1.850.000</span>
+              <span class="text-4xl font-black text-slate-950">Rp 899.000</span>
+            </div>
+            <ul class="space-y-2 pt-4 border-t border-slate-150 text-xs text-slate-600 font-semibold">
+              <li class="flex items-center gap-2">🟢 <span>Seluruh File Kode Sumber</span></li>
+              <li class="flex items-center gap-2">🟢 <span>Jasa Setup Firebase & Apps Script</span></li>
+              <li class="flex items-center gap-2">🟢 <span>Konfigurasi Google Sheets</span></li>
+              <li class="flex items-center gap-2">🟢 <span>Support & Garansi Eror 1 Bulan</span></li>
+            </ul>
+          </div>
+          <button onclick="orderViaWA('Siap Pakai (Rp 899rb)')" class="w-full py-3.5 bg-[#800000] hover:bg-red-800 text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-all shadow-lg shadow-red-950/15">
+            Pesan Siap Pakai
+          </button>
+        </div>
+
+        <!-- Paket 3: Enterprise Custom -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 flex flex-col justify-between space-y-8">
+          <div class="space-y-4">
+            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-[10px] font-bold uppercase tracking-wider rounded-md">CUSTOM ENTERPRISE</span>
+            <h3 class="text-xl font-bold text-slate-950">Kustom Fitur Instansi</h3>
+            <p class="text-xs text-slate-500 font-semibold leading-normal">Bagi instansi atau perusahaan besar yang memerlukan fitur tambahan khusus (Multi-gudang, hak akses).</p>
+            <div class="pt-4">
+              <span class="text-slate-400 text-xs font-bold block">Mulai dari</span>
+              <span class="text-3xl font-extrabold text-slate-900">Hubungi Kami</span>
+            </div>
+            <ul class="space-y-2 pt-4 border-t border-slate-200 text-xs text-slate-600 font-semibold">
+              <li class="flex items-center gap-2">🟢 <span>Integrasi API Tambahan</span></li>
+              <li class="flex items-center gap-2">🟢 <span>Desain UI Khusus Brand Anda</span></li>
+              <li class="flex items-center gap-2">🟢 <span>Pelatihan Panitia/Gudang 1-on-1</span></li>
+              <li class="flex items-center gap-2">🟢 <span>Prioritas Support Prioritas</span></li>
+            </ul>
+          </div>
+          <button onclick="orderViaWA('Enterprise/Kustom')" class="w-full py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all">
+            Konsultasi Kustom
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="py-16 md:py-24 bg-slate-50 border-t border-slate-200/50">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+        <h2 class="text-2xl font-extrabold tracking-tight text-slate-900 md:text-3xl">
+          Pertanyaan yang Sering Diajukan (FAQ)
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Q1 -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 space-y-2">
+          <h4 class="font-extrabold text-sm text-slate-800">Apakah benar-benar tidak ada biaya bulanan?</h4>
+          <p class="text-xs text-slate-500 leading-normal font-semibold">Benar! Karena aplikasi ini dibangun di atas infrastruktur Google Apps Script (Gratis) dan Firebase Spark Plan (Gratis untuk 50.000 pembacaan data per hari). Bisnis Anda tidak perlu membayar biaya hosting atau database bulanan sama sekali.</p>
+        </div>
+        <!-- Q2 -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 space-y-2">
+          <h4 class="font-extrabold text-sm text-slate-800">Apakah saya perlu mengunduh software khusus?</h4>
+          <p class="text-xs text-slate-500 leading-normal font-semibold">Tidak perlu. Aplikasi ini berbasis web cloud (PWA). Anda dapat mengaksesnya langsung lewat Google Chrome, Safari, atau Firefox dari Laptop, Tablet, maupun HP Android/iOS di mana saja dan kapan saja.</p>
+        </div>
+        <!-- Q3 -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 space-y-2">
+          <h4 class="font-extrabold text-sm text-slate-800">Bagaimana jika saya membeli paket Source Code dan mengalami kendala?</h4>
+          <p class="text-xs text-slate-500 leading-normal font-semibold">Kami menyediakan dokumen panduan penyiapan setup langkah-demi-langkah yang sangat detail. Jika Anda buntu, Anda dapat kapan saja mengupgrade ke paket "Siap Pakai" hanya dengan membayar selisih harganya.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION (CTA) FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 py-12 px-6 border-t border-slate-800 text-center">
+    <div class="max-w-7xl mx-auto space-y-6">
+      <div class="font-black text-white text-lg tracking-tight flex justify-center items-center gap-2">
+        <div class="w-8 h-8 bg-[#800000] rounded-lg flex items-center justify-center text-white">
+          📦
+        </div>
+        <span>LogiStore <span class="text-[#800000]">Executive</span></span>
+      </div>
+      <p class="text-xs max-w-md mx-auto text-slate-500 font-semibold">Miliki sistem inventori modern Anda hari ini dan tingkatkan efisiensi operasional gudang bisnis Anda ke level eksekutif.</p>
+      <div class="text-[11px] text-slate-600 font-bold">
+        &copy; 2026 LogiStore Cloud. Dibuat dengan bangga oleh YPAI Developer.
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT ORDER GENERATOR -->
+  <script>
+    function orderViaWA(namaPaket) {
+      const waNumber = "628123456789"; // Ganti dengan nomor WhatsApp jualan Anda!
+      const message = `Halo Admin LogiStore, saya tertarik untuk memesan sistem gudang paket: [ ${namaPaket} ]. Mohon dibantu info pembayarannya ya!`;
+      const encodedMsg = encodeURIComponent(message);
+      
+      const link = `https://api.whatsapp.com/send?phone=${waNumber}&text=${encodedMsg}`;
+      window.open(link, '_blank');
+    }
+  </script>
+</body>
+</html>

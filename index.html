@@ -9,7 +9,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
     .gradient-hero {
       background: radial-gradient(120% 120% at 50% 10%, #ffffff 40%, #fff1f1 80%, #ffd6d6 100%);
@@ -37,11 +37,13 @@
         <span class="font-extrabold text-lg text-slate-900 tracking-tight">LogiStore <span class="text-[#800000]">Executive</span></span>
       </div>
       
-      <div class="hidden md:flex space-x-8 text-sm font-bold text-slate-605">
+      <div class="hidden md:flex space-x-8 text-sm font-bold text-slate-600">
         <a href="#fitur" class="hover:text-[#800000] transition-colors">Fitur Utama</a>
         <a href="#demo" class="hover:text-[#800000] transition-colors">Demo Aplikasi</a>
-        <a href="#screenshots" class="hover:text-[#800000] transition-colors">Tampilan Antarmuka</a>
         <a href="#harga" class="hover:text-[#800000] transition-colors">Paket Harga</a>
+        <a href="user_documentation.html" target="_blank" class="hover:text-[#800000] transition-colors flex items-center gap-1 text-[#800000]">
+          <span>📕 Panduan Pengguna</span>
+        </a>
       </div>
 
       <div>
@@ -101,7 +103,7 @@
                 <span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-600 rounded text-[10px] font-bold">Firebase Live</span>
               </div>
               <div class="grid grid-cols-2 gap-3">
-                <div class="bg-gradient-to-br from-red-700 to-red-950 text-white p-3 rounded-lg">
+                <div class="bg-gradient-to-br from-red-700 to-red-900 text-white p-3 rounded-lg">
                   <div class="text-[9px] font-bold text-red-200">TOTAL SKU</div>
                   <div class="text-xl font-black">158 SKU</div>
                 </div>
@@ -166,7 +168,7 @@
     </div>
   </section>
 
-  <!-- DEMO VIDEO PLAYBACK CONCEPT (PEMUTAR YOUTUBE SEAMLESS) -->
+  <!-- DEMO VIDEO PLAYBACK CONCEPT (INTEGRASI PENUH YOUTUBE BEBAS SINKRONISASI) -->
   <section id="demo" class="py-16 md:py-24 bg-slate-50 border-t border-b border-slate-200/50">
     <div class="max-w-4xl mx-auto px-6 text-center space-y-8">
       <div class="space-y-3">
@@ -175,7 +177,7 @@
       </div>
       
       <!-- Container Video dengan Cover/Poster Elegan -->
-      <div class="relative bg-slate-950 rounded-2xl overflow-hidden shadow-2xl border-4 border-white max-w-3xl mx-auto" style="aspect-ratio: 16/9;">
+      <div class="relative bg-slate-950 rounded-2xl overflow-hidden shadow-2xl border-4 border-white max-w-3xl mx-auto animate-fadeIn" style="aspect-ratio: 16/9;">
         
         <!-- COVER / THUMBNAIL AWAL (Sangat Ringan, Cepat, dan Mewah) -->
         <div id="video-cover" class="absolute inset-0 z-10 bg-gradient-to-br from-slate-900 to-red-950 flex flex-col items-center justify-center p-6 cursor-pointer group transition-all duration-300">
@@ -192,7 +194,7 @@
           <h3 class="text-white font-extrabold text-lg mt-6 z-20 group-hover:text-red-200 transition-colors">Putar Video Demo LogiStore</h3>
           <p class="text-red-300 text-xs font-bold uppercase tracking-wider mt-1.5 z-20">Durasi: 2:30 Menit</p>
           
-          <!-- Tombol Cadangan YouTube -->
+          <!-- Tombol Akses Cepat YouTube -->
           <div class="mt-6 z-20 flex space-x-2">
             <button onclick="event.stopPropagation(); playVideoInside()" class="px-4 py-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-lg text-xs font-bold transition-all">
               Putar di Sini
@@ -323,13 +325,24 @@
           <h4 class="font-extrabold text-sm text-slate-800">Apakah benar-benar tidak ada biaya bulanan?</h4>
           <p class="text-xs text-slate-500 leading-normal font-semibold">Benar! Karena aplikasi ini dibangun di atas infrastruktur Google Apps Script (Gratis) dan Firebase Spark Plan (Gratis untuk 50.000 pembacaan data per hari). Bisnis Anda tidak perlu membayar biaya hosting atau database bulanan.</p>
         </div>
+        <!-- Q2 -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 space-y-2">
+          <h4 class="font-extrabold text-sm text-slate-800">Bagaimana jika saya memerlukan dokumentasi penggunaan?</h4>
+          <p class="text-xs text-slate-500 leading-normal font-semibold">Tenang, paket ini sudah dilengkapi dengan berkas <strong>Panduan Pengguna</strong> yang sangat lengkap dalam format halaman web responsif yang siap dicetak ke PDF kapan saja.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="border-t border-slate-200 bg-white py-4 px-6 text-center text-xs text-slate-400 mt-auto no-print">
-    <span>&copy; 2026 LogiStore Cloud. Semua hak cipta dilindungi.</span>
+  <footer class="border-t border-slate-200 bg-white py-8 px-6 text-center text-xs text-slate-400 mt-auto no-print">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <span>&copy; 2026 LogiStore Cloud. Semua hak cipta dilindungi.</span>
+      <div class="flex space-x-4">
+        <a href="user_documentation.html" target="_blank" class="hover:text-[#800000] underline font-bold">Panduan Pengguna</a>
+        <a href="#harga" class="hover:text-[#800000] underline font-bold">Pesan WhatsApp</a>
+      </div>
+    </div>
   </footer>
 
   <!-- ==========================================
@@ -342,7 +355,7 @@
       const container = document.getElementById("video-player-container");
       const iframe = document.getElementById("youtube-iframe");
 
-      // Set src iframe ke YouTube asli dengan autplay=1
+      // Set src iframe ke YouTube asli dengan autoplay=1
       iframe.src = "https://www.youtube.com/embed/PbApale0NHY?autoplay=1&rel=0";
 
       // Sembunyikan cover dan tampilkan video player
@@ -353,9 +366,9 @@
     // Auto-trigger klik cover untuk memudahkan user
     document.getElementById("video-cover").addEventListener("click", playVideoInside);
 
-    // FUNGSIONALITAS WHATSAPP ORDER AUTOMATION
+    // FUNGSIONALITAS WHATSAPP ORDER AUTOMATION (Nomor HP Kustom User)
     function orderViaWA(namaPaket) {
-      const waNumber = "628123456789"; // Ganti dengan nomor WhatsApp jualan Anda sendiri
+      const waNumber = "6289510265241"; // Nomor WhatsApp kustom pembeli
       const text = `Halo LogiStore! Saya tertarik untuk memesan paket *${namaPaket}*. Mohon informasi dan langkah selanjutnya untuk instalasi sistem gudang saya. Terima kasih!`;
       const encodedText = encodeURIComponent(text);
       window.open(`https://wa.me/${waNumber}?text=${encodedText}`, '_blank');

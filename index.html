@@ -14,6 +14,13 @@
     .gradient-hero {
       background: radial-gradient(120% 120% at 50% 10%, #ffffff 40%, #fff1f1 80%, #ffd6d6 100%);
     }
+    @keyframes pulse-slow {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.9; }
+    }
+    .animate-pulse-slow {
+      animation: pulse-slow 2s infinite;
+    }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800 overflow-x-hidden">
@@ -30,7 +37,7 @@
         <span class="font-extrabold text-lg text-slate-900 tracking-tight">LogiStore <span class="text-[#800000]">Executive</span></span>
       </div>
       
-      <div class="hidden md:flex space-x-8 text-sm font-bold text-slate-650">
+      <div class="hidden md:flex space-x-8 text-sm font-bold text-slate-605">
         <a href="#fitur" class="hover:text-[#800000] transition-colors">Fitur Utama</a>
         <a href="#demo" class="hover:text-[#800000] transition-colors">Demo Aplikasi</a>
         <a href="#screenshots" class="hover:text-[#800000] transition-colors">Tampilan Antarmuka</a>
@@ -159,25 +166,68 @@
     </div>
   </section>
 
-  <!-- DEMO VIDEO PLAYBACK CONCEPT (SUDAH TERINTEGRASI GOOGLE DRIVE ANDA) -->
+  <!-- DEMO VIDEO PLAYBACK CONCEPT (SISTEM COVER CERDAS ANTI-BLOKIR) -->
   <section id="demo" class="py-16 md:py-24 bg-slate-50 border-t border-b border-slate-200/50">
-    <div class="max-w-5xl mx-auto px-6 text-center space-y-8">
+    <div class="max-w-4xl mx-auto px-6 text-center space-y-8">
       <div class="space-y-3">
         <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Tonton Video Demo Aplikasi</h2>
         <p class="text-xs text-slate-500 font-semibold max-w-xl mx-auto">Lihat langsung bagaimana aplikasi ini menyinkronkan data secara instan dalam 2 menit pengoperasian.</p>
       </div>
       
-      <!-- Video Player Card Container -->
-      <div class="aspect-video bg-slate-950 rounded-2xl overflow-hidden shadow-2xl border-4 border-white relative flex items-center justify-center">
-        <!-- Google Drive Embed Video Link Asli Anda -->
-        <iframe 
-          class="absolute top-0 left-0 w-full h-full rounded-2xl" 
-          src="https://drive.google.com/file/d/1OJIHGlzbjT-2lxH6C-tjfqcLunOpSfUi/preview" 
-          frameborder="0" 
-          allow="autoplay; encrypted-media" 
-          allowfullscreen>
-        </iframe>
+      <!-- Container Video dengan Cover/Poster Elegan -->
+      <div class="relative bg-slate-950 rounded-2xl overflow-hidden shadow-2xl border-4 border-white max-w-3xl mx-auto" style="aspect-ratio: 16/9;">
+        
+        <!-- COVER / THUMBNAIL AWAL (Sangat Ringan, Cepat, dan Mewah) -->
+        <div id="video-cover" class="absolute inset-0 z-10 bg-gradient-to-br from-slate-900 to-red-950 flex flex-col items-center justify-center p-6 cursor-pointer group transition-all duration-300">
+          <!-- Background Pattern Mockup -->
+          <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+          
+          <!-- Tombol Play Glow -->
+          <div class="w-20 h-20 bg-[#800000] text-white rounded-full flex items-center justify-center shadow-2xl shadow-red-500/30 transform group-hover:scale-110 transition-all duration-300 z-20 animate-pulse-slow">
+            <svg class="w-10 h-10 translate-x-1" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M4.512 1.512a.5.5 0 01.777-.41l11.77 8a.5.5 0 010 .818l-11.77 8a.5.5 0 01-.777-.41V1.512z"/>
+            </svg>
+          </div>
+          
+          <h3 class="text-white font-extrabold text-lg mt-6 z-20 group-hover:text-red-200 transition-colors">Putar Video Demo LogiStore</h3>
+          <p class="text-red-300 text-xs font-bold uppercase tracking-wider mt-1.5 z-20">Durasi: 2:30 Menit</p>
+          
+          <!-- Tombol Backup Darurat jika Driver Browser Pengunjung Error -->
+          <div class="mt-6 z-20 flex space-x-2">
+            <button onclick="event.stopPropagation(); playVideoInside()" class="px-4 py-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-lg text-xs font-bold transition-all">
+              Putar di Sini
+            </button>
+            <a href="https://drive.google.com/file/d/1OJIHGlzbjT-2lxH6C-tjfqcLunOpSfUi/view?usp=sharing" target="_blank" onclick="event.stopPropagation();" class="px-4 py-2 bg-red-700 hover:bg-red-650 text-white rounded-lg text-xs font-bold shadow transition-all flex items-center gap-1.5">
+              <span>Buka di Tab Baru ↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- TEMPAT EMBED VIDEO GOOGLE DRIVE -->
+        <div id="video-player-container" class="w-full h-full hidden">
+          <!-- Link preview asli Google Drive Anda -->
+          <iframe 
+            id="drive-iframe"
+            class="w-full h-full" 
+            src="" 
+            frameborder="0" 
+            allow="autoplay; encrypted-media" 
+            allowfullscreen>
+          </iframe>
+        </div>
+
       </div>
+
+      <!-- Panduan Alternatif untuk Developer (Bisa Dihapus Saat Jualan) -->
+      <div class="p-4 bg-amber-500/10 border border-amber-500/20 rounded-xl max-w-3xl mx-auto text-left space-y-2 no-print">
+        <p class="text-xs text-amber-700 font-bold flex items-center gap-1.5">
+          ⚠️ <span>INFO JUALAN PROFESIONAL:</span>
+        </p>
+        <p class="text-[11px] text-slate-500 leading-relaxed font-semibold">
+          Jika video gagal berputar karena setelan cookie pengunjung, mereka bisa menekan tombol <strong>"Buka di Tab Baru ↗"</strong> di atas. Namun, jika ingin performa terbaik tanpa hambatan browser, silakan upload video Anda ke <strong>YouTube (Setel ke Tidak Publik / Unlisted)</strong> lalu ganti tautan iframe di atas menjadi <code>https://www.youtube.com/embed/KODE_VIDEO_ANDA</code>.
+        </p>
+      </div>
+
     </div>
   </section>
 
@@ -281,47 +331,44 @@
         <!-- Q1 -->
         <div class="bg-white p-5 rounded-2xl border border-slate-200 space-y-2">
           <h4 class="font-extrabold text-sm text-slate-800">Apakah benar-benar tidak ada biaya bulanan?</h4>
-          <p class="text-xs text-slate-500 leading-normal font-semibold">Benar! Karena aplikasi ini dibangun di atas infrastruktur Google Apps Script (Gratis) dan Firebase Spark Plan (Gratis untuk 50.000 pembacaan data per hari). Bisnis Anda tidak perlu membayar biaya hosting atau database bulanan sama sekali.</p>
-        </div>
-        <!-- Q2 -->
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 space-y-2">
-          <h4 class="font-extrabold text-sm text-slate-800">Apakah saya perlu mengunduh software khusus?</h4>
-          <p class="text-xs text-slate-500 leading-normal font-semibold">Tidak perlu. Aplikasi ini berbasis web cloud (PWA). Anda dapat mengaksesnya langsung lewat Google Chrome, Safari, atau Firefox dari Laptop, Tablet, maupun HP Android/iOS di mana saja dan kapan saja.</p>
-        </div>
-        <!-- Q3 -->
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 space-y-2">
-          <h4 class="font-extrabold text-sm text-slate-800">Bagaimana jika saya membeli paket Source Code dan mengalami kendala?</h4>
-          <p class="text-xs text-slate-500 leading-normal font-semibold">Kami menyediakan dokumen panduan penyiapan setup langkah-demi-langkah yang sangat detail. Jika Anda buntu, Anda dapat kapan saja mengupgrade ke paket "Siap Pakai" hanya dengan membayar selisih harganya.</p>
+          <p class="text-xs text-slate-500 leading-normal font-semibold">Benar! Karena aplikasi ini dibangun di atas infrastruktur Google Apps Script (Gratis) dan Firebase Spark Plan (Gratis untuk 50.000 pembacaan data per hari). Bisnis Anda tidak perlu membayar biaya hosting atau database bulanan.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CALL TO ACTION (CTA) FOOTER -->
-  <footer class="bg-slate-900 text-slate-400 py-12 px-6 border-t border-slate-800 text-center">
-    <div class="max-w-7xl mx-auto space-y-6">
-      <div class="font-black text-white text-lg tracking-tight flex justify-center items-center gap-2">
-        <div class="w-8 h-8 bg-[#800000] rounded-lg flex items-center justify-center text-white">
-          📦
-        </div>
-        <span>LogiStore <span class="text-[#800000]">Executive</span></span>
-      </div>
-      <p class="text-xs max-w-md mx-auto text-slate-500 font-semibold">Miliki sistem inventori modern Anda hari ini dan tingkatkan efisiensi operasional gudang bisnis Anda ke level eksekutif.</p>
-      <div class="text-[11px] text-slate-600 font-bold">
-        &copy; 2026 LogiStore Cloud. Dibuat dengan bangga oleh YPAI Developer.
-      </div>
-    </div>
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white py-4 px-6 text-center text-xs text-slate-400 mt-auto no-print">
+    <span>&copy; 2026 LogiStore Cloud. Semua hak cipta dilindungi.</span>
   </footer>
 
-  <!-- SCRIPT ORDER GENERATOR -->
+  <!-- ==========================================
+      LOGIKA JAVASCRIPT LANDING PAGE
+      ========================================== -->
   <script>
-    function orderViaWA(namaPaket) {
-      const waNumber = "628123456789"; // Ganti dengan nomor WhatsApp jualan Anda!
-      const message = `Halo Admin LogiStore, saya tertarik untuk memesan sistem gudang paket: [ ${namaPaket} ]. Mohon dibantu info pembayarannya ya!`;
-      const encodedMsg = encodeURIComponent(message);
+    // FUNGSI UNTUK MEMUTAR VIDEO SECARA DINAMIS (ANTI-LAG)
+    function playVideoInside() {
+      const cover = document.getElementById("video-cover");
+      const container = document.getElementById("video-player-container");
+      const iframe = document.getElementById("drive-iframe");
+
+      // Masukkan tautan video Google Drive saat tombol diklik (menghindari lambatnya load awal)
+      iframe.src = "https://drive.google.com/file/d/1OJIHGlzbjT-2lxH6C-tjfqcLunOpSfUi/preview";
       
-      const link = `https://api.whatsapp.com/send?phone=${waNumber}&text=${encodedMsg}`;
-      window.open(link, '_blank');
+      // Sembunyikan cover dan tampilkan video player
+      cover.classList.add("hidden");
+      container.classList.remove("hidden");
+    }
+
+    // Auto-trigger klik cover untuk memudahkan user
+    document.getElementById("video-cover").addEventListener("click", playVideoInside);
+
+    // FUNGSIONALITAS WHATSAPP ORDER AUTOMATION
+    function orderViaWA(namaPaket) {
+      const waNumber = "628123456789"; // Ganti dengan nomor WhatsApp jualan Anda sendiri
+      const text = `Halo LogiStore! Saya tertarik untuk memesan paket *${namaPaket}*. Mohon informasi dan langkah selanjutnya untuk instalasi sistem gudang saya. Terima kasih!`;
+      const encodedText = encodeURIComponent(text);
+      window.open(`https://wa.me/${waNumber}?text=${encodedText}`, '_blank');
     }
   </script>
 </body>

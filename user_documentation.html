@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panduan Pengguna Resmi - LogiStore Executive</title>
+  
+  <!-- Tailwind CSS untuk Desain Responsif & Premium -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+    /* Optimasi Tata Letak Cetak PDF */
+    @media print {
+      body { background: white !important; color: black !important; }
+      .no-print { display: none !important; }
+      .print-page-break { page-break-before: always; }
+      .shadow-card { box-shadow: none !important; border: 1px solid #e2e8f0 !important; }
+      #doc-content { margin-left: 0 !important; width: 100% !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col md:flex-row overflow-x-hidden">
+
+  <!-- SIDEBAR DAFTAR ISI (Hanya muncul di Layar / no-print) -->
+  <aside id="sidebar" class="w-full md:w-80 bg-slate-900 text-slate-300 flex flex-col shrink-0 border-r border-slate-800 no-print">
+    <div class="p-6 border-b border-slate-800 bg-[#800000] text-white">
+      <div class="flex items-center space-x-3">
+        <div class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center text-white">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+          </svg>
+        </div>
+        <div>
+          <h1 class="text-sm font-black tracking-tight leading-none">LOGISTORE</h1>
+          <span class="text-[10px] text-red-200 font-bold uppercase tracking-widest mt-1 block">MANUAL DOKUMENTASI</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Menu Navigasi Daftar Isi -->
+    <div class="flex-1 p-6 space-y-6 overflow-y-auto text-xs font-semibold">
+      <div class="space-y-2">
+        <p class="text-[10px] font-extrabold text-slate-500 uppercase tracking-widest">Pendahuluan</p>
+        <a href="#tentang" class="block py-1.5 px-3 rounded hover:bg-slate-800 hover:text-white transition-colors">1. Tentang LogiStore</a>
+        <a href="#arsitektur" class="block py-1.5 px-3 rounded hover:bg-slate-800 hover:text-white transition-colors">2. Arsitektur & Sinkronisasi</a>
+      </div>
+
+      <div class="space-y-2">
+        <p class="text-[10px] font-extrabold text-slate-500 uppercase tracking-widest">Panduan Fitur</p>
+        <a href="#dashboard-guide" class="block py-1.5 px-3 rounded hover:bg-slate-800 hover:text-white transition-colors">3. Memahami Dasbor Ringkasan</a>
+        <a href="#fitur-inventory" class="block py-1.5 px-3 rounded hover:bg-slate-800 hover:text-white transition-colors">4. Manajemen Stok & Inventori</a>
+        <a href="#scan" class="block py-1.5 px-3 rounded hover:bg-slate-800 hover:text-white transition-colors">5. Penggunaan Scan Barcode</a>
+        <a href="#laporan-cetak" class="block py-1.5 px-3 rounded hover:bg-slate-800 hover:text-white transition-colors">6. Ekspor Excel & Cetak PDF</a>
+      </div>
+
+      <div class="space-y-2">
+        <p class="text-[10px] font-extrabold text-slate-500 uppercase tracking-widest">Setup Developer</p>
+        <a href="#setup-firebase" class="block py-1.5 px-3 rounded hover:bg-slate-800 hover:text-white transition-colors">7. Setup Firebase Spark Plan</a>
+        <a href="#setup-sheets" class="block py-1.5 px-3 rounded hover:bg-slate-800 hover:text-white transition-colors">8. Sinkronisasi Google Sheets</a>
+      </div>
+
+      <div class="pt-4 border-t border-slate-800">
+        <button onclick="window.print()" class="w-full py-2.5 bg-red-800 hover:bg-[#800000] text-white font-bold text-xs uppercase tracking-wider rounded-lg transition-all shadow flex items-center justify-center gap-1.5">
+          <span>🖨️ Cetak PDF / Simpan</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- PANEL KONTEN UTAMA DOKUMEN -->
+  <main id="doc-content" class="flex-1 p-6 md:p-12 overflow-y-auto">
+    <div class="max-w-4xl mx-auto space-y-12">
+      
+      <!-- HEADER LAPORAN RESMI -->
+      <div class="border-b-2 border-[#800000] pb-6">
+        <span class="px-3 py-1 bg-red-100 text-[#800000] text-[10px] font-extrabold uppercase tracking-widest rounded-md no-print">
+          DOKUMEN RESMI PENGGUNA
+        </span>
+        <h1 class="text-3xl md:text-4xl font-black text-slate-900 tracking-tight mt-3">Panduan Pengoperasian & Setup LogiStore Executive</h1>
+        <p class="text-xs text-slate-500 mt-1 font-semibold">Sistem Laporan Inventori Gudang Realtime Terintegrasi Firebase & Google Sheets</p>
+      </div>
+
+      <!-- SEKSI 1: TENTANG LOGISTORE -->
+      <section id="tentang" class="space-y-4">
+        <h2 class="text-xl font-extrabold text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
+          <span class="text-[#800000]">1.</span> Tentang LogiStore Executive
+        </h2>
+        <p class="text-xs md:text-sm text-slate-600 leading-relaxed font-semibold">
+          <strong>LogiStore Executive</strong> adalah sistem informasi manajemen inventori gudang realtime eksekutif yang dirancang khusus untuk memangkas birokrasi operasional dan meniadakan biaya server bulanan. Dengan menggabungkan teknologi modern <strong>Firebase Cloud Database (Firestore)</strong> di frontend untuk akses kilat, serta <strong>Google Sheets</strong> di backend untuk kemudahan pengolahan data, aplikasi ini menawarkan sinkronisasi mandiri tanpa biaya berlangganan server (*Zero Monthly Hosting Cost*).
+        </p>
+      </section>
+
+      <!-- SEKSI 2: ARSITEKTUR & SINKRONISASI -->
+      <section id="arsitektur" class="space-y-4">
+        <h2 class="text-xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2 border-b border-slate-200 pb-2">
+          <span class="text-[#800000]">2.</span> Alur Kerja Data & Sinkronisasi
+        </h2>
+        <p class="text-xs text-slate-550 leading-relaxed font-semibold">
+          Aplikasi ini beroperasi dalam ekosistem sinkronisasi tiga arah yang otomatis dan aman:
+        </p>
+        <div class="p-5 bg-slate-100 rounded-xl border border-slate-200 text-xs font-mono text-slate-700 space-y-2 shadow-inner">
+          <p class="font-bold text-[#800000]">🖥️ Web App Inventori (Peramban / Browser Gudang)</p>
+          <p class="pl-4 text-slate-600">➔ Mengirim, memproses, dan membarui mutasi data langsung ke Firebase Firestore secara realtime dalam hitungan milidetik.</p>
+          <p class="font-bold text-slate-700">💾 Google Sheets Database (Admin / Kantor Pusat)</p>
+          <p class="text-slate-600 pl-4 font-semibold">➔ Menarik seluruh transaksi atau data mutasi dari Firebase secara live menggunakan integrasi Apps Script bawaan Google Sheets.</p>
+        </div>
+      </section>
+
+      <!-- SEKSI 3: FITUR DASBOR RINGKASAN -->
+      <section id="dashboard-guide" class="space-y-4">
+        <h2 class="text-xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2 border-b border-slate-200 pb-2">
+          <span class="text-[#800000]">3.</span> Memahami Dasbor Ringkasan
+        </h2>
+        <p class="text-xs text-slate-500 font-semibold leading-relaxed">
+          Dasbor Ringkasan menyajikan ringkasan visual tingkat tinggi (*executive metrics*) yang akurat untuk pemantauan cepat:
+        </p>
+        <ul class="list-disc pl-6 text-xs text-slate-600 space-y-2.5 font-semibold">
+          <li><strong>Total SKU Produk:</strong> Jumlah keseluruhan variasi atau tipe barang unik yang terdaftar aktif di dalam database gudang.</li>
+          <li><strong>Stok Aman:</strong> Kuantitas barang yang persediaan fisiknya saat ini masih berada di atas batas aman minimal yang telah ditentukan.</li>
+          <li><strong>Stok Kritis:</strong> Jumlah barang yang persediaannya telah menyentuh batas aman atau habis (0 unit), yang wajib segera dilakukan pemesanan ulang (*restock*).</li>
+          <li><strong>Estimasi Nilai Aset:</strong> Kalkulasi nilai modal bersih persediaan di gudang secara otomatis (jumlah stok fisik dikalikan harga beli satuan produk) secara realtime.</li>
+        </ul>
+      </section>
+
+      <!-- SEKSI 4: STOK & INVENTORI BARANG -->
+      <section id="fitur-inventory" class="space-y-4">
+        <h2 class="text-xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2 border-b border-slate-200 pb-2">
+          <span class="text-[#800000]">4.</span> Manajemen Stok & Inventori
+        </h2>
+        <div class="space-y-3 text-xs text-slate-600 leading-relaxed font-semibold">
+          <p>
+            Menu **Stok & Inventori** merupakan modul utama untuk administrasi fisik barang. Anda dapat mengoperasikan beberapa fungsi utama:
+          </p>
+          <ol class="list-decimal pl-5 space-y-2.5">
+            <li><strong>Pendaftaran Barang Baru:</strong> Klik tombol merah *"+ Barang Baru"*, lengkapi identitas (SKU, nama barang, kategori, stok awal, batas minimal kritis, lokasi rak, dan harga unit), lalu simpan.</li>
+            <li><strong>Penyesuaian Mutasi Stok (Paling Penting):</strong> Klik tombol **"Mutasi"** pada barang yang diinginkan. Tentukan arah pergerakan barang (Stok Masuk / Stok Keluar), input jumlah unit beserta alasan referensi, lalu konfirmasi. Sistem akan mengupdate stok fisik dan mencatat log mutasi secara otomatis demi kepatuhan audit.</li>
+            <li><strong>Ubah / Hapus Data:</strong> Klik tombol ikon pensil untuk memperbarui deskripsi barang tanpa merusak data histori transaksi, atau tombol ikon tempat sampah untuk menghapus barang.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- SEKSI 5: PANDUAN SCAN BARCODE -->
+      <section id="scan" class="space-y-4">
+        <h2 class="text-xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2 border-b border-slate-200 pb-2">
+          <span class="text-[#800000]">5.</span> Penggunaan Fitur Scan Barcode Kamera Live
+        </h2>
+        <p class="text-xs text-slate-500 leading-relaxed font-semibold">
+          LogiStore meniadakan pengetikan SKU manual yang lambat dan rawan *human-error*. Ikuti panduan pemindaian berikut:
+        </p>
+        <ol class="list-decimal pl-5 text-xs text-slate-650 space-y-2 font-semibold">
+          <li>Masuk ke tab menu **Stok & Inventori**.</li>
+          <li>Klik tombol berwarna oranye **"Scan Barcode"** di kanan atas.</li>
+          <li>Izinkan peramban (browser) Anda untuk mengakses kamera jika muncul pesan perizinan keamanan (*permission pop-up*).</li>
+          <li>Arahkan kamera pada kode batang (barcode) atau QR Code produk fisik Anda.</li>
+          <li><strong>Logika Deteksi Cerdas:</strong>
+            <ul class="list-disc pl-5 mt-1 space-y-1 text-slate-500">
+              <li>Jika SKU dikenali oleh sistem, modal **Mutasi Stok** untuk barang tersebut akan langsung terbuka secara otomatis.</li>
+              <li>Jika SKU belum terdaftar, sistem akan memberikan tawaran instan untuk mendaftarkan barang baru dengan kode SKU yang sudah terisi otomatis sesuai hasil scan.</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+      <!-- SEKSI 6: EKSPOR DAN CETAK LAPORAN -->
+      <section id="laporan-cetak" class="space-y-4">
+        <h2 class="text-xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2 border-b border-slate-200 pb-2">
+          <span class="text-[#800000]">6.</span> Ekspor Laporan Excel & Cetak PDF Resmi
+        </h2>
+        <p class="text-xs text-slate-500 leading-relaxed font-semibold">
+          Membuat pelaporan fisik siap audit menjadi sangat mudah dengan fitur ekspor instan:
+        </p>
+        <ul class="list-disc pl-5 text-xs text-slate-650 space-y-2 font-semibold">
+          <li><strong>Ekspor Excel (CSV):</strong> Klik tombol **"📥 Excel (CSV)"** untuk mengunduh seluruh persediaan aktif dalam format file `.csv`. File ini menggunakan pembatas (*delimiter*) standar yang langsung terbaca rapi oleh Microsoft Excel atau Google Sheets.</li>
+          <li><strong>Cetak Laporan PDF Resmi:</strong> Klik tombol **"🖨️ Cetak PDF"**. Melalui CSS `@media print`, website akan otomatis menyembunyikan elemen dekoratif web (seperti navigasi, tombol edit, dsb.) dan memformat tabel data menjadi dokumen cetak hitam-putih formal yang siap dicetak ke kertas fisik atau disimpan sebagai berkas PDF resmi.</li>
+        </ul>
+      </section>
+
+      <!-- SEKSI 7: SETUP FIREBASE (FOR DEVELOPER) -->
+      <section id="setup-firebase" class="space-y-4 print-page-break">
+        <h2 class="text-xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2 border-b border-slate-200 pb-2">
+          <span class="text-[#800000]">7.</span> Setup Developer: Firebase Spark Plan
+        </h2>
+        <p class="text-xs text-slate-550 leading-relaxed font-semibold">
+          Ikuti langkah berikut untuk mengonfigurasi basis data Firebase (Firestore & Authentication) secara gratis:
+        </p>
+        <ol class="list-decimal pl-5 text-xs text-slate-650 space-y-2 font-semibold">
+          <li>Buka [Firebase Console](https://console.firebase.google.com/) dan buat proyek baru dengan nama proyek pilihan Anda.</li>
+          <li>Aktifkan **Anonymous Sign-in** pada menu *Authentication* > *Sign-in method* agar pengguna terautentikasi secara aman di latar belakang.</li>
+          <li>Buat database baru di menu **Firestore Database** menggunakan server lokasi terdekat (misalnya `asia-southeast2` di Jakarta).</li>
+          <li>Masuk ke tab **Rules** pada Firestore Database, dan ubah kodenya menjadi seperti berikut agar akses data terproteksi:
+            <pre class="bg-slate-900 text-slate-300 p-4 rounded-xl text-[11px] font-mono mt-2 overflow-x-auto">
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /artifacts/{appId}/public/data/{collectionName}/{document} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}</pre>
+          </li>
+        </ol>
+      </section>
+
+      <!-- SEKSI 8: SINKRONISASI GOOGLE SHEETS -->
+      <section id="setup-sheets" class="space-y-4">
+        <h2 class="text-xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2 border-b border-slate-200 pb-2">
+          <span class="text-[#800000]">8.</span> Sinkronisasi Google Sheets
+        </h2>
+        <p class="text-xs text-slate-550 leading-relaxed font-semibold">
+          Menghubungkan data Firebase agar dapat ditarik (*import*) atau dikirim (*export*) langsung dari spreadsheet Google Sheets Anda:
+        </p>
+        <ol class="list-decimal pl-5 text-xs text-slate-650 space-y-2 font-semibold">
+          <li>Buka file Google Sheets kosong Anda.</li>
+          <li>Pilih menu **Ekstensi** > **Apps Script**.</li>
+          <li>Salin seluruh kode dari file **`apps_script_sync.js`** yang telah kami sediakan, lalu tempelkan ke dalam editor Apps Script.</li>
+          <li>Ubah nilai `API_KEY` dan `PROJECT_ID` di bagian atas script sesuai dengan proyek Firebase Anda.</li>
+          <li>Simpan, lalu segarkan halaman Google Sheets Anda. Menu baru bernama **"🔥 Firebase Gudang"** akan muncul otomatis di samping menu bantuan, siap digunakan untuk melakukan sinkronisasi data dua arah!</li>
+        </ol>
+      </section>
+
+    </div>
+  </main>
+
+</body>
+</html>
